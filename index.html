@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="Assests/style/style.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 mb-5 bg-white fixed-top" >
+<nav class="navbar navbar-expand-lg bg-body-tertiary shadow mb-5 bg-white fixed-top" >
     <div class="container-fluid " >
         <a class="navbar-brand" href="#">
             Shamodha's POS System
@@ -23,16 +23,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav m-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#main">Home</a>
+                    <button type="button" id="btnHome" class="btn nav-btn">Home</button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#order">Order</a>
+                    <button type="button" id="btnOrder" class="btn nav-btn">Order</button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#item">Items</a>
+                    <button type="button" id="btnItems" class="btn nav-btn">Items</button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#customer">Customer</a>
+                    <button type="button" id="btnCustomer" class="btn nav-btn">Customer</button>
                 </li>
             </ul>
             <form class="d-flex" role="search">
@@ -155,7 +155,7 @@
                             </div>
                             <div class="col-auto me-auto"></div>
                             <div class="col-auto" style="margin-top: 35px; margin-bottom: 25px">
-                                <button type="submit" class="justify-content-end btn btn-primary">Add Item</button>
+                                <button type="button" id="btnOrderAddItem" class="justify-content-end btn btn-primary">Add Item</button>
                             </div>
                         </form>
                     </div>
@@ -186,60 +186,60 @@
                         <input type="number" class="form-control" id="inputBalance" placeholder="10">
                     </div>
                     <div align="center" class="col-lg-12 center-block" style="margin-bottom: 30px">
-                        <button type="submit" style="font-weight: bold" class="btn btn-success">Purchase</button>
+                        <button type="button" id="btnOrderPurchase" style="font-weight: bold" class="btn btn-success">Purchase</button>
                     </div>
                 </form>
             </div>
         </div>
         <div class="col-lg-12">
-            <table class="table" style="background-color: #ffffff">
-                <thead class="table-dark">
-                    <tr>
-                        <th class="col-3">Item Code</th>
-                        <th class="col-3">Item Name</th>
-                        <th class="col-2">Price</th>
-                        <th class="col-2">Quantity</th>
-                        <th class="col-2">Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="col">I001</td>
-                        <td class="col">Keerisamba 5kg</td>
-                        <td class="col">525.00</td>
-                        <td class="col">2</td>
-                        <td class="col">1050</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="my-custom-scrollbar table-wrapper-scroll-y" style="height: 132px">
+                <table class="table" style="background-color: #ffffff">
+                    <thead class="table-dark">
+                        <tr>
+                            <th class="col-3">Item Code</th>
+                            <th class="col-3">Item Name</th>
+                            <th class="col-2">Price</th>
+                            <th class="col-2">Quantity</th>
+                            <th class="col-2">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col">I001</td>
+                            <td class="col">Keerisamba 5kg</td>
+                            <td class="col">525.00</td>
+                            <td class="col">2</td>
+                            <td class="col">1050</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-    <section>
-    </section>
 </section>
 <section id="item">
     <h6>Home>Items</h6>
     <div class="container-fluid">
-        <div class="row" style=";background-color: #ffffff;border: 15px solid #bdc3c7;">
+        <div class="row" style=";background-color: #ffffff;border: 15px solid #f1f1f1;">
             <div class="col-lg-12" style="padding: 0;">
                 <span style="padding-left: 10px">Item Search</span>
             </div>
             <div class="col-lg-9">
-                <input style="width: 95%;margin-left: 20px;margin-top: 20px;margin-bottom: 20px" type="text" placeholder="Input Item Name/Code Here">
+                <input id="txtSearch" style="width: 95%;margin-left: 20px;margin-top: 20px;margin-bottom: 20px" type="text" placeholder="Input Item Name/Code Here">
             </div>
             <div class="col-lg-1">
-                <select id="inputSearchType" style="width: 100px;margin: 20px" class="form-select">
+                <select id="selectSearchType" style="width: 100px;margin: 20px" class="form-select">
                     <option selected>Name</option>
                     <option>Code</option>
                 </select>
             </div>
             <div class="col-lg-1">
-                <button type="submit" style="font-weight: bold;margin: 20px" data-bs-toggle="modal" data-bs-target="#editItemModel" class="btn btn-primary">Search</button>
+                <button id="btnSearch" type="submit" style="font-weight: bold;margin: 20px" data-bs-toggle="modal" data-bs-target="#editItemModel" class="btn btn-primary">Search</button>
             </div>
         </div>
         <div class="row">
             <dic class="col-lg-1">
-                <button type="submit" style="width: 100px;margin: 10px" data-bs-toggle="modal" data-bs-target="#editItemModel" class="btn btn-warning">Edit</button>
+                <button type="button" disabled id="btnItemEdit"  style="width: 100px;margin: 10px" data-bs-toggle="modal" data-bs-target="#editItemModel" class="btn btn-warning">Edit</button>
                 <div id="editItemModel" class="modal" tabindex="-1">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -267,15 +267,15 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Update</button>
-                                <button type="button" class="btn btn-danger">Delete</button>
+                                <button type="button" id="btnItemUpdate" class="btn btn-primary">Update</button>
+                                <button type="button" id="btnItemDelete" data-bs-dismiss="modal" class="btn btn-danger">Delete</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </dic>
-            <dic class="col-lg-1">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newItemModel" style="width: 100px;margin: 10px">New</button>
+            <div class="col-lg-1">
+                <button type="button" id="btnItemNew" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newItemModel" style="width: 100px;margin: 10px">New</button>
                 <div id="newItemModel" class="modal" tabindex="-1">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -303,86 +303,45 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save</button>
+                                <button type="submit" id="btnItemSave" class="btn btn-primary">Save</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </dic>
+            </div>
         </div>
     </div>
-    <table class="table" style="background-color: #ffffff">
-        <thead class="table-success">
-        <tr>
-            <th class="col-3">Item Code</th>
-            <th class="col-3">Item Name</th>
-            <th class="col-2">Quantity</th>
-            <th class="col-2">Price</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td class="col">I001</td>
-            <td class="col">Keerisamba 5kg</td>
-            <td class="col">2</td>
-            <td class="col">525.00</td>
-        </tr>
-        <tr>
-            <td class="col">I001</td>
-            <td class="col">Keerisamba 5kg</td>
-            <td class="col">2</td>
-            <td class="col">525.00</td>
-        </tr>
-        <tr>
-            <td class="col">I001</td>
-            <td class="col">Keerisamba 5kg</td>
-            <td class="col">2</td>
-            <td class="col">525.00</td>
-        </tr>
-        <tr>
-            <td class="col">I001</td>
-            <td class="col">Keerisamba 5kg</td>
-            <td class="col">2</td>
-            <td class="col">525.00</td>
-        </tr>
-        <tr>
-            <td class="col">I001</td>
-            <td class="col">Keerisamba 5kg</td>
-            <td class="col">2</td>
-            <td class="col">525.00</td>
-        </tr>
-        <tr>
-            <td class="col">I001</td>
-            <td class="col">Keerisamba 5kg</td>
-            <td class="col">2</td>
-            <td class="col">525.00</td>
-        </tr>
-        <tr>
-            <td class="col">I001</td>
-            <td class="col">Keerisamba 5kg</td>
-            <td class="col">2</td>
-            <td class="col">525.00</td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="my-custom-scrollbar table-wrapper-scroll-y" style="height: 339px">
+        <table id="tblItem" class="table" style="background-color: #ffffff">
+            <thead class="table-success">
+            <tr>
+                <th class="col-3">Item Code</th>
+                <th class="col-3">Item Name</th>
+                <th class="col-2">Quantity</th>
+                <th class="col-2">Price</th>
+            </tr>
+            </thead>
+            <tbody id="tblItemBody"></tbody>
+        </table>
+    </div>
 </section>
 <section id="customer">
     <h6>Home>Customers</h6>
     <div class="container-fluid">
-        <div class="row" style=";background-color: #ffffff;border: 15px solid #bdc3c7;">
+        <div class="row" style=";background-color: #ffffff;border: 15px solid #f1f1f1;">
             <div class="col-lg-12" style="padding: 0;">
                 <span style="padding-left: 10px">Customer Search</span>
             </div>
             <div class="col-lg-9">
-                <input style="width: 95%;margin-left: 20px;margin-top: 20px;margin-bottom: 20px" type="text" placeholder="Input customer Name/Id Here">
+                <input id="txtSearchCustomer" style="width: 95%;margin-left: 20px;margin-top: 20px;margin-bottom: 20px" type="text" placeholder="Input customer Name/Id Here">
             </div>
             <div class="col-lg-1">
-                <button type="submit" style="font-weight: bold;margin: 20px"  data-bs-target="#editCustomerModel" data-bs-toggle="modal" class="btn btn-primary">Search</button>
+                <button type="button" style="font-weight: bold;margin: 20px"  data-bs-target="#editCustomerModel" data-bs-toggle="modal" class="btn btn-primary">Search</button>
             </div>
         </div>
         <div class="row">
             <dic class="col-lg-1">
-                <button type="submit" style="width: 100px;margin: 10px" data-bs-target="#editCustomerModel" data-bs-toggle="modal" class="btn btn-warning">Edit</button>
+                <button disabled type="button" style="width: 100px;margin: 10px" data-bs-target="#editCustomerModel" data-bs-toggle="modal" id="btnCustomerEdit" class="btn btn-warning">Edit</button>
                 <div id="editCustomerModel" class="modal" tabindex="-1">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -414,13 +373,12 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Update</button>
-                                <button type="button" class="btn btn-danger">Delete</button>
+                                <button type="button" id="btnCustomerUpdate" class="btn btn-primary">Update</button>
+                                <button type="button" id="btnCustomerDelete" data-bs-dismiss="modal" class="btn btn-danger">Delete</button>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </dic>
             <dic class="col-lg-1">
                 <button type="submit" style="width: 100px;margin: 10px" data-bs-toggle="modal" data-bs-target="#newCustomerModel" class="btn btn-success">New</button>
@@ -455,78 +413,33 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save</button>
+                                <button type="submit" id="btnCustomerSave" class="btn btn-primary">Save</button>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </dic>
         </div>
     </div>
-    <table class="table" style="background-color: #ffffff">
-        <thead class="table-success">
-        <tr>
-            <th class="col-3">Customer ID</th>
-            <th class="col-3">NIC</th>
-            <th class="col-3">Name</th>
-            <th class="col-2">Salary</th>
-            <th class="col-2">Address</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td class="col">I001</td>
-            <td class="col">Keerisamba 5kg</td>
-            <td class="col">2</td>
-            <td class="col">525.00</td>
-            <td class="col">525.00</td>
-        </tr>
-        <tr>
-            <td class="col">I001</td>
-            <td class="col">I001</td>
-            <td class="col">Keerisamba 5kg</td>
-            <td class="col">2</td>
-            <td class="col">525.00</td>
-        </tr>
-        <tr>
-            <td class="col">I001</td>
-            <td class="col">Keerisamba 5kg</td>
-            <td class="col">Keerisamba 5kg</td>
-            <td class="col">2</td>
-            <td class="col">525.00</td>
-        </tr>
-        <tr>
-            <td class="col">I001</td>
-            <td class="col">I001</td>
-            <td class="col">Keerisamba 5kg</td>
-            <td class="col">2</td>
-            <td class="col">525.00</td>
-        </tr>
-        <tr>
-            <td class="col">I001</td>
-            <td class="col">I001</td>
-            <td class="col">Keerisamba 5kg</td>
-            <td class="col">2</td>
-            <td class="col">525.00</td>
-        </tr>
-        <tr>
-            <td class="col">I001</td>
-            <td class="col">I001</td>
-            <td class="col">Keerisamba 5kg</td>
-            <td class="col">2</td>
-            <td class="col">525.00</td>
-        </tr>
-        <tr>
-            <td class="col">I001</td>
-            <td class="col">I001</td>
-            <td class="col">Keerisamba 5kg</td>
-            <td class="col">2</td>
-            <td class="col">525.00</td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="my-custom-scrollbar table-wrapper-scroll-y" style="height: 339px">
+        <table id="tblCustomer" class="table" style="background-color: #ffffff">
+            <thead class="table-success">
+            <tr>
+                <th class="col-3">Customer ID</th>
+                <th class="col-3">NIC</th>
+                <th class="col-3">Name</th>
+                <th class="col-2">Salary</th>
+                <th class="col-2">Address</th>
+            </tr>
+            </thead>
+            <tbody id="tblCustomerBody" onclick="tBodyClick(event)">
+
+            </tbody>
+        </table>
+    </div>
 </section>
 <script src="Assests/bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+<script src="Assests/lib/jQuery/jquery-3.6.4.min.js"></script>
+<script src="Assests/js/function.js"></script>
 </body>
 </html>
